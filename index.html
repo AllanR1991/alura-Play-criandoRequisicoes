@@ -13,6 +13,7 @@
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
     <!-- Ao trabalhar com import e export em outros arquivos estamos trabalhnado com modularização, por isso inserimos "type="module"" -->
     <script src="js/mostrarVideos.js" type="module" defer></script>    
+    <script src="js/buscarVideo.js" type="module" defer></script>    
 </head>
 
 <body>
@@ -24,8 +25,8 @@
 
             <div class="cabecalho__pesquisar">
 
-                <input type="search" placeholder="Pesquisar" id="pesquisar" class="pesquisar__input">
-                <button class="pesquisar__botao">
+                <input type="search" placeholder="Pesquisar" id="pesquisar" class="pesquisar__input" data-pesquisa>
+                <button class="pesquisar__botao" data-botao-pesquisa>
 
             </div>
 
