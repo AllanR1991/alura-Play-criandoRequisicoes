@@ -22,11 +22,16 @@ export default function constroiCard(titulo, descricao, url, imagem) {
     return video;
 }
 
-async function listaVideos(){    
-    const listaApi = await conectaApi.listaVideos();    
-    listaApi.forEach(itenLista => {
-        lista.appendChild(constroiCard(itenLista.titulo, itenLista.descricao, itenLista.url, itenLista.imagem))
-    });
+async function listaVideos() {
+    try {
+        const listaApi = await conectaApi.listaVideos();
+        listaApi.forEach(itenLista => {
+            lista.appendChild(constroiCard(itenLista.titulo, itenLista.descricao, itenLista.url, itenLista.imagem))
+        });
+    } catch (error){
+        lista.innerHTML = `<h2 class="mensagem__titulo">Não foi possível carregar a lista de vídeos </h2>`;
+        console.log(error);
+    }
 }
 
 listaVideos();

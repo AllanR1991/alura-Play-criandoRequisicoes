@@ -7,11 +7,11 @@ async function buscarVideo(evento){
     const dadosDePesquisa = document.querySelector("[data-pesquisa]").value;
 
     const busca = await conectaApi.buscaVideo(dadosDePesquisa);
-
-    evento.preventDefault();
-
+    
     const lista = document.querySelector("[data-lista]");
     
+    evento.preventDefault();
+
     /**
      * Removendo elementos filhos de elemento pai
      */
@@ -27,6 +27,10 @@ async function buscarVideo(evento){
             constroiCard(itenmLista.titulo,itenmLista.descricao,itenmLista.url,itenmLista.imagem)
         )
     });
+
+    if(busca.length == 0 ){
+        lista.innerHTML = `<h2 class="mensagem__titulo">Não existem vídeos com esse termo</h2>`;
+    }
 }
 
 botaoDePesquisa.addEventListener("click", evento => buscarVideo(evento))
